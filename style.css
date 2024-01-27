@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+
+  --hue: 194;
+  --color1-primary-blue: hsl(var(--hue), 100%, 63%);
+  --color2-black: hsl(var(--hue), 5%, 7%);
+  --color3-darkgray: hsl(var(--hue), 0%, 14%);
+  --color4-lightgray: hsl(var(--hue), 40%, 98%);
+}
+
+html.light {
+  --color2-black: hsl(var(--hue), 40%, 98%); /*Turns to lightgray*/
+  --color4-lightgray: hsl(var(--hue), 5%, 7%); /*Turns to black */
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+
+  background-color: var(--color2-black);
+  color: var(--color4-lightgray);
+
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  border: none;
+  background-color: unset;
+  color: var(--color1-primary-blue);
+  cursor: pointer;
+  font-size: 6.4rem;
+}
+
+#app {
+  display: grid;
+  place-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+#toggle_mode {
+  font-size: 3.2rem;
+  position: absolute;
+  right: 3.2rem;
+  top: 3.2rem;
+  line-height: 0;
+  color: var(--color4-lightgray);
+}
+
+#timer {
+  font-size: 9.6rem;
+}
+
+#controls {
+  padding: 2.2rem 4rem;
+  margin-top: 1.6rem;
+  gap: 1.6rem;
+
+  background-color: var(--color3-darkgray);
+  border-radius: 999rem;
+}
+
+.secondary {
+  color: var(--color4-lightgray);
+}
+
+html.light .secondary {
+  color: var(--color2-black);
+}
+
+/* Controls */
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+  display: none;
+}
